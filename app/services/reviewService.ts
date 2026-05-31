@@ -23,6 +23,7 @@ import type { Review, Product, Score } from "../types";
 const REVIEW_VIEW = "normalized_reviews_flat";
 const PRODUCT_VIEW = "normalized_products_flat";
 
+
 // ----------------------------------------------------------------
 // 리뷰 VIEW 공통 SELECT
 // ----------------------------------------------------------------
@@ -95,26 +96,18 @@ function mapNormalizedReview(row: NormalizedReviewFlatRow): Review {
     id: row.id,
     review_id: row.review_id,
     product_id: row.product_id,
-
     source: row.source ?? "",
     reviewer_type: row.reviewer_type ?? "",
-
     review_text: row.review_text,
     rating: row.rating,
     review_date: row.review_date,
-
     sentiment: row.sentiment,
     sentiment_score: row.sentiment_score,
-
     keywords: row.keywords ?? [],
     issue_type: row.issue_type,
     ai_summary: row.ai_summary,
     created_at: row.created_at,
 
-    /**
-     * 기존 UI가 review.products.product_name 형태로 접근할 수 있도록
-     * 평면형 VIEW 데이터를 제품 객체로 다시 조립합니다.
-     */
     products: {
       id: row.product_id,
       brand_name: row.brand_name ?? "",

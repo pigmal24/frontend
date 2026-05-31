@@ -36,6 +36,7 @@ export interface Product {
    */
   category: string;
 
+  // 
   /**
    * 타겟 피부 타입 (예: '민감성', '지성')
    * nullable
