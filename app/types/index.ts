@@ -40,10 +40,15 @@ export interface Product {
    * 타겟 피부 타입 (예: '민감성', '지성')
    * nullable
    */
-  target_skin: string | null;
+  product_feature: string | null;
+
+  description: string | null;
+  price: number | null;
 
   /** 레코드 생성 시각, nullable */
-  created_at: string | null;
+  created_at?: string | null;
+
+  updated_at: string | null;
 }
 
 // ----------------------------------------------------------------
